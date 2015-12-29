@@ -1,0 +1,111 @@
+﻿<UserControl x:Class="Robot.UserControl1"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+            xmlns:h="http://helixtoolkit.codeplex.com"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="500">
+    <Grid x:Name="Grid1" x:FieldModifier="public">
+
+        <h:HelixViewport3D x:Name="viewPort3d"   ZoomExtentsWhenLoaded="true" Background="#FFEFE9E9" RotateCursor="Hand" CoordinateSystemHorizontalPosition="Stretch"     CameraRotationMode="Trackball"  CameraMode="Inspect"  CoordinateSystemVerticalPosition="Stretch" IsManipulationEnabled="True" ShowCoordinateSystem="True" ShowTriangleCountInfo="False" RenderTransformOrigin="0,0" ShowFrameRate="False" SnapsToDevicePixels="False" InfiniteSpin="False" ModelUpDirection="0,0,1">
+            <ModelVisual3D  x:Name="device3D"/>
+            <ModelVisual3D x:Name="J0" x:FieldModifier="public">
+                <ModelVisual3D.Transform>
+                    <Transform3DGroup>
+                        <TranslateTransform3D OffsetX="-400" OffsetY="-269" OffsetZ="-475"/>
+                        <RotateTransform3D>
+                            <RotateTransform3D.Rotation>
+                                <AxisAngleRotation3D  x:Name="D0"  x:FieldModifier="public" Axis="0,0,1" Angle="0"/>
+                            </RotateTransform3D.Rotation>
+                        </RotateTransform3D>
+                        <TranslateTransform3D OffsetX="400" OffsetY="269" OffsetZ="475"/>
+                    </Transform3DGroup>
+                </ModelVisual3D.Transform>
+                <ModelVisual3D  x:Name="device3D1"/>
+                <ModelVisual3D x:Name="J1">
+                    <ModelVisual3D.Transform>
+                        <Transform3DGroup>
+                            <TranslateTransform3D OffsetX="-662" OffsetY="-275" OffsetZ="-675"/>
+                            <RotateTransform3D>
+                                <RotateTransform3D.Rotation>
+                                    <AxisAngleRotation3D x:FieldModifier="public" x:Name="D1"  Axis="0,1,0" Angle="0"/>
+                                </RotateTransform3D.Rotation>
+                            </RotateTransform3D>
+                            <TranslateTransform3D OffsetX="662" OffsetY="275" OffsetZ="675"/>
+                        </Transform3DGroup>
+                    </ModelVisual3D.Transform>
+
+                    <ModelVisual3D x:Name="device3D2"/>
+                    <ModelVisual3D x:Name="J2" >
+                        <ModelVisual3D.Transform>
+                            <Transform3DGroup>
+                                <TranslateTransform3D OffsetX="-640" OffsetY="-275" OffsetZ="-1350"/>
+                                <RotateTransform3D>
+                                    <RotateTransform3D.Rotation>
+                                        <AxisAngleRotation3D  x:FieldModifier="public" x:Name="D2"  Axis="0,1,0" Angle="0"/>
+                                    </RotateTransform3D.Rotation>
+                                </RotateTransform3D>
+                                <TranslateTransform3D OffsetX="640" OffsetY="275" OffsetZ="1350"/>
+                            </Transform3DGroup>
+                        </ModelVisual3D.Transform>
+                        <ModelVisual3D x:Name="device3D3"/>
+
+
+
+                        <ModelVisual3D x:Name="J3">
+                            <ModelVisual3D.Transform>
+                                <Transform3DGroup>
+                                    <TranslateTransform3D OffsetX="0" OffsetY="-275" OffsetZ="-1319"/>
+                                    <RotateTransform3D>
+                                        <RotateTransform3D.Rotation>
+                                            <AxisAngleRotation3D  x:FieldModifier="public" x:Name="D3"  Axis="1,0,0" Angle="0"/>
+                                        </RotateTransform3D.Rotation>
+                                    </RotateTransform3D>
+                                    <TranslateTransform3D OffsetX="0" OffsetY="275" OffsetZ="1319"/>
+                                </Transform3DGroup>
+                            </ModelVisual3D.Transform>
+                            <ModelVisual3D x:Name="device3D4"/>
+
+
+                            <ModelVisual3D x:Name="device3D7"/>
+                            <!--word -->
+                            <ModelVisual3D x:Name="J4">
+                                <ModelVisual3D.Transform>
+                                    <Transform3DGroup>
+                                        <TranslateTransform3D OffsetX="-1335" OffsetY="0" OffsetZ="-1319"/>
+                                        <RotateTransform3D>
+                                            <RotateTransform3D.Rotation>
+                                                <AxisAngleRotation3D  x:FieldModifier="public" x:Name="D4"  Axis="0,1,0" Angle="0"/>
+                                            </RotateTransform3D.Rotation>
+                                        </RotateTransform3D>
+                                        <TranslateTransform3D OffsetX="1335" OffsetY="0" OffsetZ="1319"/>
+                                    </Transform3DGroup>
+                                </ModelVisual3D.Transform>
+
+                                <ModelVisual3D x:Name="device3D5"/>
+                                <ModelVisual3D x:Name="J5">
+                                    <ModelVisual3D.Transform>
+                                        <Transform3DGroup>
+                                            <TranslateTransform3D OffsetX="0" OffsetY="-275" OffsetZ="-1319"/>
+                                            <RotateTransform3D>
+                                                <RotateTransform3D.Rotation>
+                                                    <AxisAngleRotation3D  x:FieldModifier="public" x:Name="D5"  Axis="1,0,0" Angle="0"/>
+                                                </RotateTransform3D.Rotation>
+                                            </RotateTransform3D>
+                                            <TranslateTransform3D OffsetX="0" OffsetY="275" OffsetZ="1319"/>
+                                        </Transform3DGroup>
+                                    </ModelVisual3D.Transform>
+                                    <ModelVisual3D x:Name="device3D6"/>
+                                </ModelVisual3D>
+                            </ModelVisual3D>
+                        </ModelVisual3D>
+                    </ModelVisual3D>
+                </ModelVisual3D>
+            </ModelVisual3D>
+            <h:SunLight Brightness="1" />
+
+        </h:HelixViewport3D>
+       
+    </Grid>
+</UserControl>

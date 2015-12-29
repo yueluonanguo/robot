@@ -3,6 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
          xmlns:tool="clr-namespace:_3DTools;assembly=3DTools"
        xmlns:gif="clr-namespace:GifImageLib;assembly=GifImageLib"
+     
+        xmlns:local="clr-namespace:Robot"
+    
         Title="MainWindow" Height="600" Width="1066" Loaded="Window_Loaded" Closing="Window_Closing" FontSize="12" Background="SteelBlue">
    
             <Grid>
@@ -87,7 +90,7 @@
         <TabControl Grid.Column="1" Grid.RowSpan="2" Name="tabControl1">
             <TabItem Header="点动1" Name="tabItem1" FontSize="12">
                 <Grid>
-                    <Grid Name="grid3" Background="#FF408359">
+                    <Grid Name="grid3" Background="Teal">
                         <Grid.RowDefinitions>
                             <RowDefinition />
                             <RowDefinition />
@@ -194,48 +197,67 @@
                     </Grid>
                 </Grid>
             </TabItem>
-            <TabItem Header="点动2">
-                <Grid Name="grid8">
-                    <Label Content="轴向" Height="31" HorizontalAlignment="Left" Margin="6,0,0,0" Name="label52" VerticalAlignment="Top" Width="37" />
-                    <Label Content="速度" Height="34" HorizontalAlignment="Left" Margin="65,0,0,0" Name="label53" VerticalAlignment="Top" Width="53" />
-                    <Label Content="方向" Height="31" HorizontalAlignment="Right" Margin="0,0,14,0" Name="label54" VerticalAlignment="Top" Width="34" />
-                    <TextBox Height="27" HorizontalAlignment="Left" Margin="65,71,0,0" Name="textBox5" VerticalAlignment="Top" Width="65" />
-                    <Button Content="+" Height="27" HorizontalAlignment="Left" Margin="191,37,0,0" Name="button25" VerticalAlignment="Top" Width="46" PreviewMouseLeftButtonDown="button25_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="button25_PreviewMouseLeftButtonUp" />
-                    <Button Content="-" Height="27" HorizontalAlignment="Left" Margin="191,0,0,404" Name="button26" VerticalAlignment="Bottom" Width="46" PreviewMouseLeftButtonDown="button26_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="button26_PreviewMouseLeftButtonUp" />
-                    <RadioButton Content="X" Height="16" HorizontalAlignment="Left" Margin="16,41,0,0" Name="radioButton3" VerticalAlignment="Top" Width="37" Checked="radioButton3_Checked" />
-                    <RadioButton Content="Y" Height="15" HorizontalAlignment="Left" Margin="16,74,0,0" Name="radioButton4" VerticalAlignment="Top" Width="55" Checked="radioButton4_Checked" />
-                    <RadioButton Content="Z" Height="18" HorizontalAlignment="Left" Margin="16,107,0,0" Name="radioButton5" VerticalAlignment="Top" Width="71" Checked="radioButton5_Checked" />
-                    <GroupBox Height="298" HorizontalAlignment="Left" Margin="6,160,0,0" Name="groupBox1" VerticalAlignment="Top" Width="239" Header="定点姿态变换">
-                        <Grid >
-                            <gif:GifImage Height="50" HorizontalAlignment="Left" Margin="10,6,0,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="65" Source="/Robot;component/Images/Yaw.gif" />
-                            <TextBox Height="22" HorizontalAlignment="Right" Margin="0,191,6,0" Name="textBox16" VerticalAlignment="Top" Width="73" />
-                            <Button Content="+" Height="29" HorizontalAlignment="Left" Margin="10,225,0,0" Name="button27" VerticalAlignment="Top" Width="66" PreviewMouseLeftButtonUp="button27_PreviewMouseLeftButtonUp" PreviewMouseLeftButtonDown="button27_PreviewMouseLeftButtonDown" />
-                            <Button Content="-" Height="29" HorizontalAlignment="Right" Margin="0,225,6,0" Name="button28" VerticalAlignment="Top" Width="66"  PreviewMouseLeftButtonUp="button28_PreviewMouseLeftButtonUp" PreviewMouseLeftButtonDown="button28_PreviewMouseLeftButtonDown" />
-                            <RadioButton Content="Yaw" Height="16" HorizontalAlignment="Left" Margin="148,24,0,0" Name="radioButton6" VerticalAlignment="Top" Width="64" Checked="radioButton6_Checked" />
-                            <gif:GifImage Height="52" HorizontalAlignment="Left" Margin="11,63,0,0" Name="image2" Stretch="Fill" VerticalAlignment="Top" Width="64" Source="/Robot;component/Images/Pitch.gif" />
-                            <RadioButton Content="Pitch" Height="23" HorizontalAlignment="Left" Margin="148,92,0,0" Name="radioButton7" VerticalAlignment="Top" Width="56" Checked="radioButton7_Checked" />
-                            <gif:GifImage Height="55" HorizontalAlignment="Left" Margin="11,125,0,0" Name="image3" Stretch="Fill" VerticalAlignment="Top" Width="64" Source="/Robot;component/Images/Roll.gif" />
-                            <RadioButton Content="Roll" Height="16" HorizontalAlignment="Left" Margin="148,150,0,0" Name="radioButton8" VerticalAlignment="Top" Width="47" Checked="radioButton8_Checked" />
-                            <Label Content="旋转角度" Height="25" HorizontalAlignment="Left" Margin="9,189,0,0" Name="label55" VerticalAlignment="Top" Width="67" />
-                        </Grid>
-                    </GroupBox>
+            <TabItem Header="点动2" >
+                <Grid Name="grid8" PreviewMouseLeftButtonUp="grid8_PreviewMouseLeftButtonUp">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                   
+                    
+                    <TextBox  Grid.Column="1" Grid.Row="3"  Name="textBox5" />
+                    <Button Grid.Column="2" Grid.Row="2" Content="+" Name="button25"  PreviewMouseLeftButtonDown="button25_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="button25_PreviewMouseLeftButtonUp" />
+                    <Button Grid.Column="2" Grid.Row="4" Content="-" Name="button26"  PreviewMouseLeftButtonDown="button26_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="button26_PreviewMouseLeftButtonUp" />
+                    <RadioButton Grid.Column="0" Grid.Row="2" Content="DX"  Name="radioButton3" Checked="radioButton3_Checked" />
+                    <RadioButton Grid.Column="0" Grid.Row="3" Content="DY"  Name="radioButton4" Checked="radioButton4_Checked" />
+                    <RadioButton Grid.Column="0" Grid.Row="4" Content="DZ"  Name="radioButton5"  Checked="radioButton5_Checked" />
+                    <RadioButton Grid.Column="0" Grid.Row="5" Content="DA"  Name="radioButton16"  Checked="radioButton16_Checked" />
+                    <RadioButton Grid.Column="0" Grid.Row="6" Content="DB"  Name="radioButton17"  Checked="radioButton17_Checked" />
+                    <RadioButton Grid.Column="0" Grid.Row="7" Content="DC"  Name="radioButton18" Checked="radioButton18_Checked"/>
+                    <Label Content="基座坐标系" Grid.ColumnSpan="3" Grid.Row="0" Name="label63" Background="Teal" />
+                    <Label Content="工具坐标系"   Grid.ColumnSpan="3" Grid.Row="8" Name="label64" Background="Teal" />
+                    <RadioButton Content="Tool--X" Grid.Column="0" Grid.Row="10"  Name="radioButton13"  Checked="radioButton13_Checked" />
+                    <RadioButton Content="Tool--Y" Grid.Column="0" Grid.Row="11"   Name="radioButton14"  Checked="radioButton14_Checked" />
+                    <RadioButton Content="Tool--Z" Grid.Column="0" Grid.Row="12" Name="radioButton15" Checked="radioButton15_Checked" />
+                    <TextBox Grid.Column="1" Grid.Row="11" Name="textBox18" />
+                    <gif:GifImage Grid.Column="0" Grid.Row="13" Name="image1" Source="/Robot;component/Images/Yaw.gif" Margin="0,0,41,0" />
+                    <gif:GifImage Grid.Column="0" Grid.Row="14" Name="image2" Source="/Robot;component/Images/Pitch.gif" Margin="0,0,41,0" />
+                    <gif:GifImage Grid.Column="0" Grid.Row="15" Name="image3" Source="/Robot;component/Images/Roll.gif" Margin="0,0,41,0" />
+                    <RepeatButton Content="+" Grid.Column="2" Grid.Row="10" Name="button34"  Click="button34_Click" PreviewMouseLeftButtonUp="button34_PreviewMouseLeftButtonUp" />
+                    <RepeatButton Content="-" Grid.Column="2" Grid.Row="12" Name="button35"  Click="button35_Click" PreviewMouseLeftButtonUp="button35_PreviewMouseLeftButtonUp" />
+                    <RadioButton Checked="radioButton6_Checked" Content="Yaw" Grid.Row="13"  Name="radioButton6" Margin="41,0,0,0" />
+                    <RadioButton Checked="radioButton7_Checked" Content="Pitch" Grid.Row="14"  Name="radioButton7" Margin="41,0,0,0" />
+                    <RadioButton Checked="radioButton8_Checked" Content="Roll" Grid.Row="15"  Name="radioButton8" Margin="41,0,0,0" />
+                    <TextBox Grid.Column="1" Grid.Row="14" Name="textBox16" />
+                    <Button Content="+" Grid.Column="2" Grid.Row="13" Name="button27" PreviewMouseLeftButtonDown="button27_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="button27_PreviewMouseLeftButtonUp" />
+                    <Button Content="-" Grid.Column="2" Grid.Row="15" Name="button28" PreviewMouseLeftButtonDown="button28_PreviewMouseLeftButtonDown" PreviewMouseLeftButtonUp="button28_PreviewMouseLeftButtonUp" />
+                    <TextBox Grid.Column="1" Grid.Row="6" Name="textBox19" />
+                    <RepeatButton Content="+" Grid.Column="2" Grid.Row="5" Name="button39" Click="button39_Click" PreviewMouseLeftButtonUp="button39_PreviewMouseLeftButtonUp" />
+                    <RepeatButton Content="-" Grid.Column="2" Grid.Row="7" Name="button40" Click="button40_Click" PreviewMouseLeftButtonUp="button40_PreviewMouseLeftButtonUp" />
                 </Grid>
             </TabItem>
-            <TabItem Header="点动3">
-                <Grid Name="grid9">
-                    <RadioButton Content="Tool--X" Height="20" HorizontalAlignment="Left"  Name="radioButton13" VerticalAlignment="Top" Width="67" Margin="18,23,0,0" Checked="radioButton13_Checked" />
-                    <RadioButton Content="Tool--Y" Height="20" HorizontalAlignment="Left"  Name="radioButton14" VerticalAlignment="Top" Width="67" Margin="18,43,0,0" Checked="radioButton14_Checked" />
-                    <RadioButton Content="Tool--Z" Height="20" HorizontalAlignment="Left"  Name="radioButton15" VerticalAlignment="Top" Width="67" Margin="18,63,0,0" Checked="radioButton15_Checked" />
-                    <RadioButton Content="Tool--U" Height="20" HorizontalAlignment="Left"  Name="radioButton16" VerticalAlignment="Top" Width="67" Margin="158,23,0,0" />
-                    <RadioButton Content="Tool--V" Height="20" HorizontalAlignment="Left"  Name="radioButton17" VerticalAlignment="Top" Width="67" Margin="158,43,0,0" />
-                    <RadioButton Content="Tool--W" Height="20" HorizontalAlignment="Left"  Name="radioButton18" VerticalAlignment="Top" Width="67" Margin="158,63,0,0" />
-                    <RepeatButton Content="Button" Height="17" HorizontalAlignment="Left" Margin="18,133,0,0" Name="button34" VerticalAlignment="Top" Width="61" Click="button34_Click" />
-                    <RepeatButton Content="Button" Height="20" HorizontalAlignment="Left" Margin="170,134,0,0" Name="button35" VerticalAlignment="Top" Width="57" Click="button35_Click" />
-                    <TextBox Height="21" HorizontalAlignment="Left" Margin="78,100,0,0" Name="textBox18" VerticalAlignment="Top" Width="88" />
-                </Grid>
-            </TabItem>
+           
             <TabItem Header="操作" FontSize="12">
-                <Grid Name="grid7" Background="DodgerBlue">
+                <Grid Name="grid7" Background="DarkOliveGreen">
                     <Grid.RowDefinitions>
                         <RowDefinition />
                         <RowDefinition />
@@ -2094,7 +2116,7 @@
                                                                                         <MaterialGroup>
                                                                                             <DiffuseMaterial>
                                                                                                 <DiffuseMaterial.Brush>
-                                                                                                    <SolidColorBrush Color="#157E10" Opacity="1.000000"/>
+                                                                                                    <SolidColorBrush Color="Red" Opacity="1.000000"/>
                                                                                                 </DiffuseMaterial.Brush>
                                                                                             </DiffuseMaterial>
                                                                                             <SpecularMaterial SpecularPower="64">
@@ -2149,7 +2171,7 @@
                                                                                         <MaterialGroup>
                                                                                             <DiffuseMaterial>
                                                                                                 <DiffuseMaterial.Brush>
-                                                                                                    <SolidColorBrush Color="#FFFD0405" Opacity="1.000000"/>
+                                                                                                    <SolidColorBrush Color="Blue" Opacity="1.000000"/>
                                                                                                 </DiffuseMaterial.Brush>
                                                                                             </DiffuseMaterial>
                                                                                             <SpecularMaterial SpecularPower="64">
@@ -2204,7 +2226,7 @@
                                                                                         <MaterialGroup>
                                                                                             <DiffuseMaterial>
                                                                                                 <DiffuseMaterial.Brush>
-                                                                                                    <SolidColorBrush Color="#3815F5" Opacity="1.000000"/>
+                                                                                                    <SolidColorBrush Color="Green" Opacity="1.000000"/>
                                                                                                 </DiffuseMaterial.Brush>
                                                                                             </DiffuseMaterial>
                                                                                             <SpecularMaterial SpecularPower="64">
@@ -2250,16 +2272,16 @@
                                         
                                     </ModelVisual3D.Content>
                                 </ModelVisual3D>
-                                <tool:ScreenSpaceLines3D Points="0,-0.6,0,0 ,0.6,0" Thickness="1" Color="Red"/>
-                                <tool:ScreenSpaceLines3D Points="-0.8,-0.5,0,0.8 ,-0.5,0" Thickness="1" Color="Green"/>
-                                <tool:ScreenSpaceLines3D Points="0,-0.5,-0.8,0 ,-0.5,0.8" Thickness="1" Color="Blue"/>
-                                <tool:ScreenSpaceLines3D Points="-0.8,-0.5,0, -0.75,-0.575,0" Thickness="1" Color="Green"/>
-                                <tool:ScreenSpaceLines3D Points="-0.8,-0.5,0, -0.75 ,-0.425,0" Thickness="1" Color="Green"/>
-                                <tool:ScreenSpaceLines3D Points="0,-0.6,0, 0,-0.55,0.05" Thickness="1" Color="Red"/>
-                                <tool:ScreenSpaceLines3D Points="0,-0.6,0, 0 ,-0.55,-0.05" Thickness="1" Color="Red" />
-                                <tool:ScreenSpaceLines3D Points="0,-0.5,-0.8, 0 ,-0.425,-0.75" Thickness="1" Color="Blue"/>
-                                <tool:ScreenSpaceLines3D Points="0,-0.5 ,-0.8, 0 ,-0.575,-0.75" Thickness="1" Color="Blue"/>
-                                <tool:ScreenSpaceLines3D x:Name="e"   Thickness="2" Color="#FF1B5583" >
+                                <tool:ScreenSpaceLines3D Points="0,-0.6,0,0 ,0.6,0" Thickness="1" Color="Blue"/>
+                                <tool:ScreenSpaceLines3D Points="-0.8,-0.5,0,0.8 ,-0.5,0" Thickness="1" Color="Red"/>
+                                <tool:ScreenSpaceLines3D Points="0,-0.5,-0.8,0 ,-0.5,0.8" Thickness="1" Color="Green"/>
+                                <tool:ScreenSpaceLines3D Points="-0.8,-0.5,0, -0.75,-0.575,0" Thickness="1" Color="Red"/>
+                                <tool:ScreenSpaceLines3D Points="-0.8,-0.5,0, -0.75 ,-0.425,0" Thickness="1" Color="Red"/>
+                                <tool:ScreenSpaceLines3D Points="0,-0.6,0, 0,-0.55,0.05" Thickness="1" Color="Blue"/>
+                                <tool:ScreenSpaceLines3D Points="0,-0.6,0, 0 ,-0.55,-0.05" Thickness="1" Color="Blue" />
+                                <tool:ScreenSpaceLines3D Points="0,-0.5,-0.8, 0 ,-0.425,-0.75" Thickness="1" Color="Green"/>
+                                <tool:ScreenSpaceLines3D Points="0,-0.5 ,-0.8, 0 ,-0.575,-0.75" Thickness="1" Color="Green"/>
+                                <tool:ScreenSpaceLines3D x:Name="line"   Thickness="2" Color="#FF1B5583" >
                                     
                                 </tool:ScreenSpaceLines3D>
                             </Viewport3D>
@@ -2316,7 +2338,7 @@
                             <Label Grid.Column="12" Grid.ColumnSpan="3" Grid.Row="11" Name="label29" FontSize="9" />
                             <Label Content="J1/V" Grid.Column="11" Grid.Row="12" Name="label30" FontSize="9" />
                             <Label Grid.Column="12" Grid.ColumnSpan="3" Grid.Row="12" Name="label31" FontSize="9" />
-                            <Label Content="J2/V" Grid.Column="11" Grid.Row="13" Name="label32" FontSize="9" VerticalAlignment="Bottom" />
+                            <Label Content="J2/V" Grid.Column="11" Grid.Row="13" Name="label32" FontSize="9"  />
                             <Label Grid.Column="12" Grid.ColumnSpan="3" Grid.Row="13" Name="label33" FontSize="9" />
                             <Label Content="J5/V" Grid.Column="11" Grid.Row="16" Name="label34" FontSize="9" />
                             <Label Grid.Column="12" Grid.ColumnSpan="3" Grid.Row="16" Name="label36" FontSize="9" />
@@ -2326,24 +2348,33 @@
                             <Label Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="14" Name="label6" FontSize="9" />
                             <Label Content="J3/V" Grid.Column="11" Grid.Row="14" Name="label8" FontSize="9" />
                             <Label Grid.Column="12" Grid.ColumnSpan="3" Grid.Row="14" Name="label41" FontSize="9" />
-                            <Label Content="DX" Grid.Column="5" Grid.Row="14" Name="label43" FontSize="9" />
-                            <Label Grid.Column="6" Grid.ColumnSpan="3" Grid.Row="14" Name="label44" FontSize="9" />
-                            <Label Content="DY" Grid.Column="5" Grid.Row="15" Name="label45" FontSize="9" />
-                            <Label Grid.Column="6" Grid.ColumnSpan="3" Grid.Row="15" Name="label46" FontSize="9" />
-                            <Label Content="DZ" Grid.Column="5" Grid.Row="16" Name="label47" FontSize="9" />
-                            <Label Grid.Column="6" Grid.ColumnSpan="3" Grid.Row="16" Name="label48" FontSize="9" />
-                            <Label Content="绿色：X" Grid.Column="13" Grid.ColumnSpan="2" Name="label49" FontSize="8" />
-                            <Label Content="蓝色：Y" Grid.Column="13" Grid.ColumnSpan="2" Grid.Row="1" Name="label50" FontSize="8" />
-                            <Label Content="红色：Z" Grid.Column="13" Grid.ColumnSpan="2" Grid.Row="2" Name="label51" FontSize="8" />
-                            
+                            <Label Content="DX" Grid.Column="11" Grid.Row="4" Name="label43" FontSize="9"  />
+                            <Label Grid.Column="12" Grid.ColumnSpan="3" Grid.Row="4" Name="label44" FontSize="9"  />
+                            <Label Content="DY" Grid.Column="11" Grid.Row="5" Name="label45" FontSize="9" />
+                            <Label Grid.Column="12" Grid.ColumnSpan="3" Grid.Row="5" Name="label46" FontSize="9"  />
+                            <Label Content="DZ" Grid.Column="11" Grid.Row="6" Name="label47" FontSize="9" Grid.ColumnSpan="2"  />
+                            <Label Grid.Column="12" Grid.ColumnSpan="3" Grid.Row="6" Name="label48" FontSize="9"  />
+                            <Label Content="红色：X" Grid.Column="13" Grid.ColumnSpan="2" Name="label49" FontSize="8" />
+                            <Label Content="绿色：Y" Grid.Column="13" Grid.ColumnSpan="2" Grid.Row="1" Name="label50" FontSize="8" />
+                            <Label Content="蓝色：Z" Grid.Column="13" Grid.ColumnSpan="2" Grid.Row="2" Name="label51" FontSize="8" />
+                            <Label  Grid.Column="13" Grid.ColumnSpan="2" Grid.Row="3"  Name="label56"  FontSize="8" Foreground="#FF222286" />
+                            <Label  Content="DA" Grid.Column="11" Grid.Row="7"  Name="label57"  FontSize="9"/>
+                            <Label  Content="DB" Grid.Column="11" Grid.Row="8"  Name="label58"  FontSize="9"/>
+                            <Label  Content="DC" Grid.Column="11" Grid.Row="9"  Name="label59"  FontSize="9"/>
+                            <Label  Grid.Column="12" Grid.ColumnSpan="3" Grid.Row="7" Name="label60"  FontSize="9"/>
+                            <Label  Grid.Column="12" Grid.ColumnSpan="3" Grid.Row="8" Name="label61"  FontSize="9"/>
+                            <Label  Grid.Column="12" Grid.ColumnSpan="3" Grid.Row="9" Name="label62"  FontSize="9" />
                         </Grid>
                     </Grid>
                 </TabItem>
-                <TabItem Header="3D2" />
+              
+                <TabItem Header="3D1" ForceCursor="True">
+                     <local:UserControl1 x:Name="model"></local:UserControl1>
+                    </TabItem>
             </TabControl>
             <TabControl Grid.ColumnSpan="3" Grid.Row="3" Name="TabControl5">
                 <TabItem Header="主控" Name="TabItem51">
-                  <Grid  Name="grid5" Background="#FF0B6954" OpacityMask="#FF2C7631">
+                    <Grid  Name="grid5" Background="Teal" OpacityMask="#FF2C7631">
                 <Grid.RowDefinitions>
                     <RowDefinition />
                     <RowDefinition />
@@ -2367,7 +2398,7 @@
                 </Grid>
 
                 </Button>
-                <Button Grid.Column="1" Grid.Row="1" Name="button21" FontSize="12" Click="button21_Click" Foreground="DodgerBlue" Background="#FF1E80FF">
+                <Button Grid.Row="1" Name="button21" FontSize="12" Click="button21_Click" Foreground="DodgerBlue" Background="#FF1E80FF">
                 <Grid>
                     <Image Source = "/Robot;component/Images/tu32_副本_副本_副本.jpg" />
                 </Grid>
@@ -2383,7 +2414,9 @@
                 <RadioButton Content="基座坐标系" Grid.Column="6" Grid.ColumnSpan="3" Grid.Row="1" Height="16" HorizontalAlignment="Left" Margin="21,13,0,0" Name="radioButton2" VerticalAlignment="Top" Width="84" Checked="radioButton2_Checked"  />
                 <RadioButton Content="工具坐标系" Grid.Column="6" Grid.ColumnSpan="2" Grid.Row="2" Height="16" HorizontalAlignment="Left" Margin="20,11,0,0" Name="radioButton11" VerticalAlignment="Top" Checked="radioButton11_Checked" />
                 <Button Content="帮助" Grid.Column="8" Grid.Row="3" Name="button32" Click="button32_Click" />
-                        
+                        <Button Content="急停" Grid.Column="8"   Name="button36" Click="button36_Click" />
+                        <Button Content="复位" Grid.Column="8" Grid.Row="1" Name="button37" Click="button37_Click" />
+                        <Button Content="回零" Grid.Column="8" Grid.Row="2"  Name="button38" Click="button38_Click" />
                     </Grid>
                 </TabItem>
                 <TabItem Header="示教" Name="TabItem52">
